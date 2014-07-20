@@ -45,6 +45,8 @@
 #include "CliRunnable.h"
 #include "SystemConfig.h"
 #include "WorldSocket.h"
+#include "Log.h"
+#include "../TriniChat/IRCClient.h"
 
 using namespace boost::program_options;
 
