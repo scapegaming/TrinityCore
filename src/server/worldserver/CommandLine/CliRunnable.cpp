@@ -34,7 +34,7 @@
 #include "MapManager.h"
 #include "Player.h"
 #include "Util.h"
-#include "../TriniChat/IRCClient.h"
+#include "IRCClient.h" // may need to change later
 
 #if PLATFORM != PLATFORM_WINDOWS
 #include <readline/readline.h>
