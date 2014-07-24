@@ -41,7 +41,7 @@
 #include "Timer.h"
 #include "Util.h"
 #include "AuthSocket.h"
-#include "../TriniChat/IRCClient.h"
+#include "IRCClient.h"
 #include "RealmList.h"
 
 #include "BigNumber.h"

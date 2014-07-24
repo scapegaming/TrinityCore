@@ -10,6 +10,9 @@
 
 message(STATUS "DEP PREPARATIONS")
 
+if(TRINTYCHAT)
+  find_package(ACE REQUIRED)
+endif()
 if( CMAKE_COMPILER_IS_GNUCXX )
   add_definitions(--no-warnings)
 elseif( MSVC )

@@ -43,7 +43,7 @@ file(GLOB_RECURSE sources_Server Server/*.cpp Server/*.h)
 file(GLOB_RECURSE sources_Skills Skills/*.cpp Skills/*.h)
 file(GLOB_RECURSE sources_Spells Spells/*.cpp Spells/*.h)
 file(GLOB_RECURSE sources_Texts Texts/*.cpp Texts/*.h)
-file(GLOB_RECURSE sources_TriniChat TriniChat/*.cpp TriniChat/*.h)
+file(GLOB_RECURSE sources_TrinityChat TrinityChat/*.cpp TrinityChat/*.h)
 file(GLOB_RECURSE sources_Tools Tools/*.cpp Tools/*.h)
 file(GLOB_RECURSE sources_Tickets Tickets/*.cpp Tickets/*.h)
 file(GLOB_RECURSE sources_Warden Warden/*.cpp Warden/*.h)
@@ -94,7 +94,7 @@ set(game_STAT_SRCS
   ${sources_Skills}
   ${sources_Spells}
   ${sources_Texts}
-  ${sources_TriniChat}
+  ${sources_TrinityChat}
   ${sources_Tools}
   ${sources_Tickets}
   ${sources_Warden}
@@ -192,7 +192,7 @@ include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}/Spells
   ${CMAKE_CURRENT_SOURCE_DIR}/Spells/Auras
   ${CMAKE_CURRENT_SOURCE_DIR}/Texts
-  ${CMAKE_CURRENT_SOURCE_DIR}/TriniChat
+  ${CMAKE_CURRENT_SOURCE_DIR}/TrinityChat
   ${CMAKE_CURRENT_SOURCE_DIR}/Tools
   ${CMAKE_CURRENT_SOURCE_DIR}/Tickets
   ${CMAKE_CURRENT_SOURCE_DIR}/Warden
