@@ -44,7 +44,7 @@ void IRCClient::run()
 
     // before we begin we wait a few 
     // mangos is still starting up.
-    ACE_Based::Thread::Sleep(500);
+	boost::this_thread::sleep(boost::posix_time::seconds(500));
     TC_LOG_ERROR("misc", "\n%s\n%s\n%s\n%s",
         "***************************************",
         "**   TriniChat2 Threaded IRC Client   **",

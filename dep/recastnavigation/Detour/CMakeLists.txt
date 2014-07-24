@@ -9,12 +9,12 @@
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 set(Detour_STAT_SRCS
-    Source/DetourAlloc.cpp 
-    Source/DetourCommon.cpp 
-    Source/DetourNavMesh.cpp 
-    Source/DetourNavMeshBuilder.cpp 
-    Source/DetourNavMeshQuery.cpp 
-    Source/DetourNode.cpp 
+    Source/DetourAlloc.cpp
+    Source/DetourCommon.cpp
+    Source/DetourNavMesh.cpp
+    Source/DetourNavMeshBuilder.cpp
+    Source/DetourNavMeshQuery.cpp
+    Source/DetourNode.cpp
 )
 include_directories(Include)
 
@@ -27,3 +27,5 @@ endif()
 add_library(Detour STATIC ${Detour_STAT_SRCS})
 
 target_link_libraries(Detour ${ZLIB_LIBRARIES})
+
+message("  -> Prepared: recastnavigation/Detour")

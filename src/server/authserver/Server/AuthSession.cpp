@@ -145,7 +145,7 @@ void AuthSession::AsyncReadHeader()
                 if ((uint8)entry.cmd == _readBuffer[0] && (entry.status == STATUS_CONNECTED || (_isAuthenticated && entry.status == STATUS_AUTHED)))
                 {
                     // Handle dynamic size packet
-                    if (_readBuffer[0] == AUTH_LOGON_CHALLENGE)
+                    if (_readBuffer[0] == AUTH_LOGON_CHALLENGE || _readBuffer[0] == AUTH_RECONNECT_CHALLENGE)
                     {
                         _socket.read_some(boost::asio::buffer(&_readBuffer[1], sizeof(uint8) + sizeof(uint16))); //error + size
 
@@ -797,13 +797,13 @@ bool AuthSession::_HandleRealmList()
     uint32 id = fields[0].GetUInt32();
 
     // Update realm list if need
-    sRealmList.UpdateIfNeed();
+    sRealmList->UpdateIfNeed();
 
     // Circle through realms in the RealmList and construct the return packet (including # of user characters in each realm)
     ByteBuffer pkt;
 
     size_t RealmListSize = 0;
-    for (RealmList::RealmMap::const_iterator i = sRealmList.begin(); i != sRealmList.end(); ++i)
+    for (RealmList::RealmMap::const_iterator i = sRealmList->begin(); i != sRealmList->end(); ++i)
     {
         const Realm &realm = i->second;
         // don't work with realms which not compatible with the client

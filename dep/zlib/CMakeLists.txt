@@ -9,18 +9,18 @@
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 SET(zlib_STAT_SRCS
-  adler32.c                                                                                                                                           
-  compress.c                                                                                                                                          
-  crc32.c                                                                                                                                             
-  deflate.c                                                                                                                                           
-  example.c                                                                                                                                           
-  infback.c                                                                                                                                           
-  inffast.c                                                                                                                                           
-  inflate.c                                                                                                                                           
-  inftrees.c                                                                                                                                          
-  trees.c                                                                                                                                             
-  uncompr.c                                                                                                                                           
-  zutil.c   
+  adler32.c
+  compress.c
+  crc32.c
+  deflate.c
+  example.c
+  infback.c
+  inffast.c
+  inflate.c
+  inftrees.c
+  trees.c
+  uncompr.c
+  zutil.c
 )
 
 include_directories(
@@ -28,3 +28,5 @@ include_directories(
 )
 
 add_library(zlib STATIC ${zlib_STAT_SRCS})
+
+message("  -> Prepared: zlib")

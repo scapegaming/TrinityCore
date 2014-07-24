@@ -58,3 +58,5 @@ include_directories(
 add_definitions(-D_GNU_SOURCE -D_REENTRANT)
 
 add_library(jemalloc STATIC ${jemalloc_STAT_SRC})
+
+message("  -> Prepared: jemalloc")

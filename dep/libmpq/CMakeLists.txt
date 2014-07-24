@@ -32,3 +32,5 @@ endif()
 add_library(mpq STATIC ${mpq_STAT_SRCS})
 
 set_target_properties(mpq PROPERTIES LINKER_LANGUAGE CXX)
+
+message("  -> Prepared: libmpq")

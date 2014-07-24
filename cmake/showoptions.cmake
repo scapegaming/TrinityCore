@@ -62,6 +62,12 @@ else()
   message("* Use coreside debug     : No  (default)")
 endif()
 
+if( TRINITYCHAT )
+  message("* Build TrinityChat      : Yes")
+else()
+  message("* Build TrintyChat       : No  (default)")
+endif()
+
 if( WIN32 )
   if( USE_MYSQL_SOURCES )
     message("* Use MySQL sourcetree   : Yes (default)")
@@ -94,4 +100,3 @@ if ( NOJEM )
 endif()
 
 message("")
-

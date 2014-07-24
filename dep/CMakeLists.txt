@@ -8,6 +8,8 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+message(STATUS "DEP PREPARATIONS")
+
 if( CMAKE_COMPILER_IS_GNUCXX )
   add_definitions(--no-warnings)
 elseif( MSVC )
@@ -16,11 +18,14 @@ endif()
 
 if(CMAKE_SYSTEM_NAME MATCHES "Linux")
   if(SERVERS AND NOT NOJEM)
-    add_subdirectory(jemalloc)  
+    add_subdirectory(jemalloc)
   endif()
 endif()
 
 if(CMAKE_SYSTEM_NAME MATCHES "Windows")
+  if(TRINITYCHAT)
+    add_subdirectory(acelite)
+  endif()
   if(USE_MYSQL_SOURCES)
       add_subdirectory(mysqllite)
   endif()
@@ -40,3 +45,6 @@ endif()
 if(TOOLS)
   add_subdirectory(libmpq)
 endif()
+
+message(STATUS "DEP PERPARATIONS COMPLETE")
+message("")

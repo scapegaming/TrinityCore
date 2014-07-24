@@ -9,16 +9,16 @@
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 set(Recast_STAT_SRCS
-    Source/Recast.cpp 
-    Source/RecastAlloc.cpp 
-    Source/RecastArea.cpp 
-    Source/RecastContour.cpp 
-    Source/RecastFilter.cpp 
+    Source/Recast.cpp
+    Source/RecastAlloc.cpp
+    Source/RecastArea.cpp
+    Source/RecastContour.cpp
+    Source/RecastFilter.cpp
 	Source/RecastLayers.cpp
-    Source/RecastMesh.cpp 
-    Source/RecastMeshDetail.cpp 
-    Source/RecastRasterization.cpp 
-    Source/RecastRegion.cpp 
+    Source/RecastMesh.cpp
+    Source/RecastMeshDetail.cpp
+    Source/RecastRasterization.cpp
+    Source/RecastRegion.cpp
 )
 
 include_directories(Include)
@@ -32,3 +32,5 @@ endif()
 add_library(Recast STATIC ${Recast_STAT_SRCS})
 
 target_link_libraries(Recast ${ZLIB_LIBRARIES})
+
+message("  -> Prepared: recastnavigation/Recast")

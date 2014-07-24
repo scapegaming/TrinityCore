@@ -20,3 +20,5 @@ include_directories(
 )
 
 add_library(bzip2 STATIC ${bzip2_STAT_SRCS})
+
+message("  -> Prepared: bzip2")

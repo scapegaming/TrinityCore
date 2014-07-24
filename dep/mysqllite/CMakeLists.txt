@@ -25,7 +25,7 @@ set(WITH_FAST_MUTEXES OFF)
 # Handle useful options - hardcode to ON/OFF
 set(ENABLED_PROFILING OFF)
 set_directory_properties(PROPERTIES COMPILE_DEFINITIONS_DEBUG ENABLED_DEBUG_SYNC)
- 
+
 # Set DBUG_OFF and other optional release-only flags for non-debug project types
 foreach(BUILD_TYPE RELEASE RELWITHDEBINFO MINSIZEREL)
   set_directory_properties(PROPERTIES COMPILE_DEFINITIONS_${BUILD_TYPE} DBUG_OFF)
@@ -163,7 +163,7 @@ set(MYSYS_SOURCES
   ${CMAKE_CURRENT_SOURCE_DIR}/mysys/my_bitmap.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mysys/my_chsize.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mysys/my_compress.c
-  ${CMAKE_CURRENT_SOURCE_DIR}/mysys/my_copy.c 
+  ${CMAKE_CURRENT_SOURCE_DIR}/mysys/my_copy.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mysys/my_create.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mysys/my_delete.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mysys/my_div.c
@@ -239,14 +239,14 @@ if(HAVE_MLOCK)
 endif()
 
 set(CLIENT_SOURCES
-  ${CMAKE_CURRENT_SOURCE_DIR}/libmysql/get_password.c 
+  ${CMAKE_CURRENT_SOURCE_DIR}/libmysql/get_password.c
   ${CMAKE_CURRENT_SOURCE_DIR}/libmysql/libmysql.c
   ${CMAKE_CURRENT_SOURCE_DIR}/libmysql/errmsg.c
-  ${CMAKE_CURRENT_SOURCE_DIR}/sql-common/client.c 
-  ${CMAKE_CURRENT_SOURCE_DIR}/sql-common/my_time.c 
-  ${CMAKE_CURRENT_SOURCE_DIR}/sql-common/client_plugin.c 
+  ${CMAKE_CURRENT_SOURCE_DIR}/sql-common/client.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sql-common/my_time.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sql-common/client_plugin.c
   ${CMAKE_CURRENT_SOURCE_DIR}/sql/net_serv.cc
-  ${CMAKE_CURRENT_SOURCE_DIR}/sql-common/pack.c 
+  ${CMAKE_CURRENT_SOURCE_DIR}/sql-common/pack.c
   ${CMAKE_CURRENT_SOURCE_DIR}/sql/password.c
 )
 
@@ -259,3 +259,5 @@ add_library(libmysql SHARED ${CLIENT_SOURCES} ${DBUG_SOURCES} ${MYSYS_SOURCES} $
 target_link_libraries(libmysql zlib ${OPENSSL_LIBRARIES} ${OPENSSL_EXTRA_LIBRARIES} ws2_32)
 
 install(TARGETS libmysql RUNTIME DESTINATION "${CMAKE_INSTALL_PREFIX}")
+
+message("  -> Prepared: mysqllite")
