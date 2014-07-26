@@ -113,7 +113,7 @@ class IRCCmd
 		void    Level_Player(_CDATA *CD);
         void    Money_Player(_CDATA *CD);
         void    Mute_Player(_CDATA *CD);
-        void    Online_Players(_CDATA *CD);
+        //void    Online_Players(_CDATA *CD);
         void    PM_Player(_CDATA *CD);
 		void    Restart_Trinity(_CDATA *CD);
         void    Revive_Player(_CDATA *CD);

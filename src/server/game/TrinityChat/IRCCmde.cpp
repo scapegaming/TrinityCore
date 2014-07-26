@@ -1747,11 +1747,13 @@ void IRCCmd::Mute_Player(_CDATA *CD)
         Send_IRCA(CD->USER, "Player Does Not Exist!", true, "ERROR");
 }
 
+/* removing until can fix boost error
 void IRCCmd::Online_Players(_CDATA *CD)
 {
         sIRC->Script_Lock[MCS_Players_Online] = true;
 		boost::thread script(new mcs_OnlinePlayers(CD));
 }
+*/
 
 void IRCCmd::PM_Player(_CDATA *CD)
 {

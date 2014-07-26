@@ -364,6 +364,7 @@ bool IRCCmd::IsValid(std::string USER, std::string FROM, std::string CHAT, std::
             }
             cValid = true;
         }
+		/* removing due to boost error
         else if (CDATA.CMD == "ONLINE")
         {
             switch(ParamsValid(&CDATA, 0, sIRC->CONLINE))
@@ -380,6 +381,7 @@ bool IRCCmd::IsValid(std::string USER, std::string FROM, std::string CHAT, std::
             }
             cValid = true;
         }
+		*/
         else if (CDATA.CMD == "PM")
         {
             switch(ParamsValid(&CDATA, 2, sIRC->CPM))
