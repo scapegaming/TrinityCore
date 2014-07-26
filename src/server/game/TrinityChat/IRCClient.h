@@ -21,7 +21,9 @@
 #ifndef _IRC_CLIENT_H
 #define _IRC_CLIENT_H
 
-#include "ace/Singleton.h"
+//#include "ace/Singleton.h"
+#include <boost/asio/io_service.hpp>
+#include <boost/asio/strand.hpp>
 #include "Player.h"
 #include "IRCLog.h"
 #include "IRCCmd.h"
@@ -61,9 +63,8 @@ enum script_Names
 };
 
 // IRCClient main class
-class IRCClient : public ACE_Based::Runnable
+class IRCClient //: public ACE_Based::Runnable
 {
-	friend class ACE_Singleton<IRCClient, ACE_Null_Mutex>;
 
 public:
 	// IRCClient Constructor
@@ -71,7 +72,19 @@ public:
 	// IRCClient Destructor
 	~IRCClient();
 	// ZThread Entry
-	void run() override;
+	void run();
+	static IRCClient* instance(boost::asio::io_service* ioService = nullptr)
+	{
+		static IRCClient instance;
+
+		if (ioService != nullptr)
+		{
+			instance._ioService = ioService;
+			instance._strand = new boost::asio::strand(*ioService);
+		}
+
+		return &instance;
+	}
 public:
 	// AH Function
 	void AHCancel(uint64 itmid, std::string itmnme, std::string plname, uint32 faction);
@@ -261,7 +274,11 @@ private:
 	void Handle_IRC(std::string sData);
 	// Receieves data from the socket.
 	void SockRecv();
+
+	// add boost ioservice
+	boost::asio::io_service* _ioService;
+	boost::asio::strand* _strand;
 };
 
-#define sIRC ACE_Singleton<IRCClient, ACE_Null_Mutex>::instance()
+#define sIRC IRCClient::instance() //ACE_Singleton<IRCClient, ACE_Null_Mutex>::instance()
 #endif

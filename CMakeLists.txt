@@ -51,6 +51,8 @@ include(CheckPlatform)
 set(OPENSSL_EXPECTED_VERSION 1.0.0)
 
 find_package(PCHSupport)
+#add ACE as required
+find_package(ACE REQUIRED)
 find_package(OpenSSL REQUIRED)
 find_package(Threads REQUIRED)
 

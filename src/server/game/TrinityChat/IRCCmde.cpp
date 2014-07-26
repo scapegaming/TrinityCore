@@ -18,6 +18,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
+
 #include "IRCCmd.h"
 #include <iostream>
 #include "IRCClient.h"
@@ -1746,7 +1747,7 @@ void IRCCmd::Mute_Player(_CDATA *CD)
 void IRCCmd::Online_Players(_CDATA *CD)
 {
         sIRC->Script_Lock[MCS_Players_Online] = true;
-        ACE_Based::Thread script(new mcs_OnlinePlayers(CD));
+        boost::thread script(new mcs_OnlinePlayers(CD));
 }
 
 void IRCCmd::PM_Player(_CDATA *CD)
@@ -1885,6 +1886,7 @@ void IRCCmd::Spell_Player(_CDATA *CD)
                 plr->CastSpell(plr, spell, true);
                 Send_IRCA(ChanOrPM(CD), "\00313["+_PARAMS[0]+"] : Has Had Spell "+name+" Casted On Them.", true, CD->TYPE);
             }
+			/* learn and unlearn broken it seems
             if (_PARAMS[1] == "learn")
             {
                 plr->learnSpell(spell, true);
@@ -1895,6 +1897,7 @@ void IRCCmd::Spell_Player(_CDATA *CD)
                 plr->removeSpell(spell);
                 Send_IRCA(ChanOrPM(CD), "\00313["+_PARAMS[0]+"] : Has Unlearned Spell "+name+".", true, CD->TYPE);
             }
+			*/
         }
         else
             Send_IRCA(CD->USER, "Incorrect Spell ID!", true, "ERROR");

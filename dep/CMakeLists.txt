@@ -10,9 +10,6 @@
 
 message(STATUS "DEP PREPARATIONS")
 
-if(TRINTYCHAT)
-  find_package(ACE REQUIRED)
-endif()
 if( CMAKE_COMPILER_IS_GNUCXX )
   add_definitions(--no-warnings)
 elseif( MSVC )
@@ -26,9 +23,7 @@ if(CMAKE_SYSTEM_NAME MATCHES "Linux")
 endif()
 
 if(CMAKE_SYSTEM_NAME MATCHES "Windows")
-  if(TRINITYCHAT)
-    add_subdirectory(acelite)
-  endif()
+  add_subdirectory(acelite)
   if(USE_MYSQL_SOURCES)
       add_subdirectory(mysqllite)
   endif()

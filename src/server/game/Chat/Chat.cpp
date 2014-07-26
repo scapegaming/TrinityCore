@@ -358,6 +358,7 @@ bool ChatHandler::ExecuteCommandInTable(ChatCommand* table, const char* text, st
                         zoneName = zone->area_name[locale];
                 }
 
+
                 sLog->outCommand(m_session->GetAccountId(), "Command: %s [Player: %s (Guid: %u) (Account: %u) X: %f Y: %f Z: %f Map: %u (%s) Area: %u (%s) Zone: %s Selected %s: %s (GUID: %u)]",
                     fullcmd.c_str(), player->GetName().c_str(), GUID_LOPART(player->GetGUID()),
                     m_session->GetAccountId(), player->GetPositionX(), player->GetPositionY(),
