@@ -28,7 +28,7 @@ EndScriptData */
 #include "Language.h"
 #include "Player.h"
 #include "ObjectMgr.h"
-#include "IRCClient.h"
+#include "../TrinityChat/IRCClient.h"
 
 class message_commandscript : public CommandScript
 {

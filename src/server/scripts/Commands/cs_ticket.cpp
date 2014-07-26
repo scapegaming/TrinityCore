@@ -30,7 +30,7 @@ EndScriptData */
 #include "Player.h"
 #include "TicketMgr.h"
 #include "ScriptMgr.h"
-#include "IRCClient.h"
+#include "../TrinityChat/IRCClient.h"
 
 class ticket_commandscript : public CommandScript
 {

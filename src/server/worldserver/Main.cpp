@@ -46,7 +46,7 @@
 #include "SystemConfig.h"
 #include "WorldSocket.h"
 #include "Log.h"
-#include "IRCClient.h"
+#include "../TrinityChat/IRCClient.h"
 
 using namespace boost::program_options;
 

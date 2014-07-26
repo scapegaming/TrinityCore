@@ -112,6 +112,9 @@ enum WorldDatabaseStatements
     WORLD_DEL_DISABLES,
     WORLD_SEL_REQ_XP,
 
+    // start TCC queries
+    WORLD_SEL_TCC_ITEM_MAX,
+    
     MAX_WORLDDATABASE_STATEMENTS
 };
 

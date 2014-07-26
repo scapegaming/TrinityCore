@@ -395,9 +395,12 @@ void IRCCmd::Char_Player(_CDATA *CD)
             }
             if (_PARAMS[2] == "add")
             {
-                QueryResult item_max = WorldDatabase.PQuery("SELECT MAX(entry) FROM item_template");
+				PreparedStatement* stmt = WorldDatabase.GetPreparedStatement(WORLD_SEL_TCC_ITEM_MAX);
+				PreparedQueryResult item_max = LoginDatabase.Query(stmt);
+//                QueryResult item_max = WorldDatabase.PQuery("SELECT MAX(entry) FROM item_template");
                 Quest const* pQuest = sObjectMgr->GetQuestTemplate(qId);
-                for (uint32 id = 0; id < item_max; id++)
+				uint32 Uint32_item_max = (*item_max)[0].GetUInt32();
+                for (uint32 id = 0; id < Uint32_item_max; id++)
                 {
                     ItemTemplate const *pProto = sObjectMgr->GetItemTemplate(id);
                     if (!pProto)
@@ -1747,7 +1750,7 @@ void IRCCmd::Mute_Player(_CDATA *CD)
 void IRCCmd::Online_Players(_CDATA *CD)
 {
         sIRC->Script_Lock[MCS_Players_Online] = true;
-        boost::thread script(new mcs_OnlinePlayers(CD));
+		boost::thread script(new mcs_OnlinePlayers(CD));
 }
 
 void IRCCmd::PM_Player(_CDATA *CD)

@@ -33,7 +33,7 @@
 #include "Player.h"
 #include "Pet.h"
 #include "LFG.h"
-#include "IRCClient.h"
+#include "../TrinityChat/IRCClient.h"
 #include "GroupMgr.h"
 #include "MMapFactory.h"
 
