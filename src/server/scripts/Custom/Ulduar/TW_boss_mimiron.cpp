@@ -702,13 +702,13 @@ class TW_boss_mimiron : public CreatureScript
                 switch (uiType)
                 {
                     case DATA_SET_US_UP_THE_BOMB_MINE:
-                        mineCriteria = uiData;
+                        mineCriteria = uiData == 1;
                         break;
                     case DATA_SET_US_UP_THE_BOMB_ROCKET:
-                        rocketCriteria = uiData;
+                        rocketCriteria = uiData == 1;
                         break;
                     case DATA_SET_US_UP_THE_BOMB_BOT:
-                        botCriteria = uiData;
+                        botCriteria = uiData == 1;
                         break;
                     default:
                         break;
@@ -873,7 +873,7 @@ public:
         void EnterCombat(Unit* /*who*/)
         {
             if (Creature* Mimiron = ObjectAccessor::GetCreature(*me, instance ? instance->GetData64(BOSS_MIMIRON) : 0))
-                MimironHardMode = Mimiron->AI()->GetData(DATA_GET_HARD_MODE);
+                MimironHardMode = Mimiron->AI()->GetData(DATA_GET_HARD_MODE) == 1;
 
             if (MimironHardMode)
             {
@@ -1131,10 +1131,11 @@ public:
         }
 
         Phases phase;
+        
         bool MimironHardMode;
-
         bool spinning;
-        bool direction;
+        
+        uint8 direction;
         uint32 spinTimer;
 
         void Reset()
@@ -1180,7 +1181,7 @@ public:
         void EnterCombat(Unit* /*who*/)
         {
             if (Creature* Mimiron = ObjectAccessor::GetCreature(*me, instance ? instance->GetData64(BOSS_MIMIRON) : 0))
-                MimironHardMode = Mimiron->AI()->GetData(DATA_GET_HARD_MODE);
+                MimironHardMode = Mimiron->AI()->GetData(DATA_GET_HARD_MODE) == 1;
 
             if (MimironHardMode)
             {
@@ -1289,7 +1290,7 @@ public:
                 if (spinTimer <= diff)
                 {
                     float orient = me->GetOrientation();
-                    orient += direction ? M_PI/60 : -M_PI/60;
+                    orient += direction == 1 ? M_PI/60 : -M_PI/60;
 
                     if (Creature* leviathan = me->GetVehicleCreatureBase())
                     {
@@ -1523,7 +1524,7 @@ public:
         void EnterCombat(Unit* /*who*/)
         {
             if (Creature* Mimiron = ObjectAccessor::GetCreature(*me, instance ? instance->GetData64(BOSS_MIMIRON) : 0))
-                MimironHardMode = Mimiron->AI()->GetData(DATA_GET_HARD_MODE);
+                MimironHardMode = Mimiron->AI()->GetData(DATA_GET_HARD_MODE) == 1;
 
             if (MimironHardMode)
                 DoCast(me, SPELL_EMERGENCY_MODE, true);

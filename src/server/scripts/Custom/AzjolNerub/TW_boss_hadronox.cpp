@@ -267,7 +267,6 @@ class HadronoxEventDespawner : public BasicEvent
             }
 
             uint32 corpseDelay = creature->GetCorpseDelay();
-            uint32 respawnDelay = creature->GetRespawnDelay();
             creature->SetCorpseDelay(1);
 
             if (CreatureData const* data = creature->GetCreatureData())
@@ -387,7 +386,7 @@ class TW_boss_hadronox : public CreatureScript
 
             void MovementInform(uint32 type, uint32 id)
             {
-                if (type = WAYPOINT_MOTION_TYPE)
+                if (type == WAYPOINT_MOTION_TYPE)
                 {
                     switch (id)
                     {
@@ -645,7 +644,7 @@ class TW_npc_anub_ar_crusher : public CreatureScript
                 DoMeleeAttackIfReady();
             }
 
-            void WaypointReached(uint32 waypointId)
+            void WaypointReached(uint32 /*waypointId*/)
             {
             }
 
@@ -1133,7 +1132,7 @@ class TW_spell_trigger_large_aoi_summon_anubar_champion_periodic : public SpellS
                 return _instance != NULL;
             }
 
-            void PeriodicTick(AuraEffect const* aurEff)
+            void PeriodicTick(AuraEffect const* /*aurEff*/)
             {	
                 if (_instance->GetData(DATA_KRIKTHIR_THE_GATEWATCHER) != DONE || _instance->GetData(DATA_HADRONOX_EVENT) == DONE)
                     return;
@@ -1211,7 +1210,7 @@ class TW_spell_trigger_large_aoi_summon_anubar_crypt_fiend_periodic : public Spe
                 return _instance != NULL;
             }
 
-            void PeriodicTick(AuraEffect const* aurEff)
+            void PeriodicTick(AuraEffect const* /*aurEff*/)
             {	
                 if (_instance->GetData(DATA_KRIKTHIR_THE_GATEWATCHER) != DONE || _instance->GetData(DATA_HADRONOX_EVENT) == DONE)
                     return;
@@ -1289,7 +1288,7 @@ class TW_spell_trigger_large_aoi_summon_anubar_necromancer_periodic : public Spe
                 return _instance != NULL;
             }
 
-            void PeriodicTick(AuraEffect const* aurEff)
+            void PeriodicTick(AuraEffect const* /*aurEff*/)
             {	
                 if (_instance->GetData(DATA_KRIKTHIR_THE_GATEWATCHER) != DONE || _instance->GetData(DATA_HADRONOX_EVENT) == DONE)
                     return;

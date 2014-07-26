@@ -252,14 +252,14 @@ class boss_kologarn : public CreatureScript
                 switch (uiType)
                 {
                     case DATA_IF_LOOKS_COULD_KILL:
-                        _ifLooks = uiData;
+                        _ifLooks = uiData == 1;
                         break;
                     default:
                         break;
                 }
             }
 
-            uint64 GetGUID(int32 type /*= 0 */) const override
+            uint64 GetGUID(int32 /*type = 0 */) const override
             {
                 if (DATA_EYEBEAM_TARGET)
                     return eyebeamTarget;
@@ -786,7 +786,7 @@ class achievement_rubble_and_roll : public AchievementCriteriaScript
         bool OnCheck(Player* /*source*/, Unit* target) override
         {
             if (target && target->IsAIEnabled)
-                return target->GetAI()->GetData(DATA_RUBBLE_AND_ROLL);
+                return target->GetAI()->GetData(DATA_RUBBLE_AND_ROLL) == 1;
 
             return false;
         }
@@ -800,7 +800,7 @@ class achievement_with_open_arms : public AchievementCriteriaScript
         bool OnCheck(Player* /*source*/, Unit* target) override
         {
             if (target && target->IsAIEnabled)
-                return target->GetAI()->GetData(DATA_WITH_OPEN_ARMS);
+                return target->GetAI()->GetData(DATA_WITH_OPEN_ARMS) == 1;
 
             return false;
         }
@@ -814,7 +814,7 @@ public:
     bool OnCheck(Player* /*source*/, Unit* target) override
     {
         if (target)
-            return target->GetAI()->GetData(DATA_IF_LOOKS_COULD_KILL);
+            return target->GetAI()->GetData(DATA_IF_LOOKS_COULD_KILL) == 1;
         return false;
     }
 };
