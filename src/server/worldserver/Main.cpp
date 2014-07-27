@@ -223,6 +223,12 @@ extern int main(int argc, char** argv)
     // Set server online (allow connecting now)
     LoginDatabase.DirectPExecute("UPDATE realmlist SET flag = flag & ~%u, population = 0 WHERE id = '%u'", REALM_FLAG_INVALID, realmID);
 
+	if (sIRC->Active == 1)
+	{
+		std::thread* ircThread = nullptr;
+		ircThread = new std::thread(ircThread);
+	}
+
     // Start the freeze check callback cycle in 5 seconds (cycle itself is 1 sec)
     if (int coreStuckTime = sConfigMgr->GetIntDefault("MaxCoreStuckTime", 0))
     {

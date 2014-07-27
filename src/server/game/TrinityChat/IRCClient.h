@@ -280,5 +280,5 @@ private:
 	boost::asio::strand* _strand;
 };
 
-#define sIRC IRCClient::instance() //ACE_Singleton<IRCClient, ACE_Null_Mutex>::instance()
+#define sIRC IRCClient::instance()
 #endif

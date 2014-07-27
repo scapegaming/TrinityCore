@@ -41,10 +41,12 @@ IRCClient::~IRCClient(){}
 void IRCClient::run()
 {
     iLog.WriteLog(" %s : ****** TrinityCore With TriniChat Has Been Started ******", iLog.GetLogDateTimeStr().c_str());
-
+	TC_LOG_INFO("server.loading", ">> Loaded TrinitChat Successfully.");
     // before we begin we wait a few 
     // mangos is still starting up.
+	std::cout << "Beginning of sleep" << std::endl;
 	boost::this_thread::sleep(boost::posix_time::seconds(500));
+	std::cout << "After thread sleep" << std::endl;
     TC_LOG_ERROR("misc", "\n%s\n%s\n%s\n%s",
         "***************************************",
         "**   TriniChat2 Threaded IRC Client   **",
