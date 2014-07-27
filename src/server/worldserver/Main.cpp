@@ -227,6 +227,8 @@ extern int main(int argc, char** argv)
 	{
 		std::thread* ircThread = nullptr;
 		ircThread = new std::thread(TrinityChatThread);
+	//	boost::thread ircThread(TrinityChatThread);
+	//	ircThread.join();
 	}
 
     // Start the freeze check callback cycle in 5 seconds (cycle itself is 1 sec)

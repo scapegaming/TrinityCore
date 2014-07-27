@@ -51,9 +51,8 @@ void IRCClient::run()
 	TC_LOG_INFO("server.loading", ">> Loaded TrinitChat Successfully.");
     // before we begin we wait a few 
     // mangos is still starting up.
-	std::cout << "Beginning of sleep" << std::endl;
-	boost::this_thread::sleep(boost::posix_time::seconds(500));
-	std::cout << "After thread sleep" << std::endl;
+    // not needed as server will be booted by the time thread is called.
+    //boost::this_thread::sleep(boost::posix_time::seconds(500));
     TC_LOG_ERROR("misc", "\n%s\n%s\n%s\n%s",
         "***************************************",
         "**   TriniChat2 Threaded IRC Client   **",
@@ -99,7 +98,9 @@ void IRCClient::run()
 			{
 				//ACE_Based::Thread::Sleep(sIRC->_wct);
 				int test = sIRC->_wct;
-				boost::this_thread::sleep(boost::posix_time::seconds(test));
+				std::chrono::milliseconds dura(test);
+				std::this_thread::sleep_for(dura);
+				//boost::this_thread::sleep(boost::posix_time::seconds(test));
 			}
         }
         else

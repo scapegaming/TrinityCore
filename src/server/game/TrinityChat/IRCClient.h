@@ -24,6 +24,8 @@
 //#include "ace/Singleton.h"
 #include <boost/asio/io_service.hpp>
 #include <boost/asio/strand.hpp>
+#include <thread>
+#include <chrono>
 #include "Player.h"
 #include "IRCLog.h"
 #include "IRCCmd.h"
