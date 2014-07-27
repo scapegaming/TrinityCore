@@ -62,8 +62,10 @@ enum script_Names
 	MCS_Players_Online = 0,
 };
 
+void TrinityChatThread()
+
 // IRCClient main class
-class IRCClient //: public ACE_Based::Runnable
+class IRCClient
 {
 
 public:

@@ -37,6 +37,13 @@ IRCClient::IRCClient()
 // IRCClient Destructor
 IRCClient::~IRCClient(){}
 
+void TrinityChatThread()
+{
+	//call irc bot
+	IRCClient* a;
+	a->run();
+}
+
 // ZThread Entry This function is called when the thread is created in Master.cpp (trinitycore)
 void IRCClient::run()
 {
@@ -104,6 +111,7 @@ void IRCClient::run()
     }
     while (!World::IsStopped()){};
 }
+
 
 std::string IRCClient::GetChatLine(int nItem)
 {

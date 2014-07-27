@@ -226,7 +226,7 @@ extern int main(int argc, char** argv)
 	if (sIRC->Active == 1)
 	{
 		std::thread* ircThread = nullptr;
-		ircThread = new std::thread(ircThread);
+		ircThread = new std::thread(TrinityChatThread);
 	}
 
     // Start the freeze check callback cycle in 5 seconds (cycle itself is 1 sec)
