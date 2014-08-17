@@ -30,6 +30,9 @@ set(scripts_STAT_SRCS
   Custom/Ulduar/TW_boss_mimiron.cpp
   ${scripts_STAT_SRCS}
 #  ${sources_Custom}
+    Custom/Transmog/Transmogrification.h
+    Custom/Transmog/Transmogrification.cpp
+    Custom/Transmog/Transmogrifier.cpp
 )
 
 message("  -> Prepared: Custom")
