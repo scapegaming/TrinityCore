@@ -1300,6 +1300,8 @@ class ObjectMgr
 
         bool IsTransportMap(uint32 mapId) const { return _transportMaps.count(mapId) != 0; }
 
+        ItemFakeStatContainer _itemFakeStatStore; // custom
+
     private:
         // first free id for selected id type
         uint32 _auctionId;
